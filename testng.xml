@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="MedicureTestSuite">
+    <test name="MedicureTests">
+        <classes>
+            <class name="com.mentorbabaa.selenium.medicure_application.App" />
+            <!-- Add other test classes here if needed -->
+        </classes>
+    </test>
+</suite>
