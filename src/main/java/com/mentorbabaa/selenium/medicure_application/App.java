@@ -28,7 +28,7 @@ public class App
         //options.addArguments("--headless"); // Add headless argument
         driver = new ChromeDriver(options);
         
-        driver.get("http://localhost:8085/");
+        driver.get("http://52.91.30.29:8086");
     }
 
     public void testFormSubmission() {
