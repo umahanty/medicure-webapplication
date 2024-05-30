@@ -10,7 +10,7 @@
   <version>0.0.1-SNAPSHOT</version>
 
   <name>medicure-application</name>
-  <url>http://www.example.com</url>
+  <url>https://github.com/umahanty/medicure-webapplication</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
