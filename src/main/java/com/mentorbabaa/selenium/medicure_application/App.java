@@ -13,30 +13,20 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
 
-public class App {
-    private WebDriver driver;
+public class App 
+{
+	private WebDriver driver;
 
-    @BeforeClass
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+        //System.setProperty("webdriver.chrome.driver", "D:\\Software\\chromedriver-win64\\chromedriver.exe");
 
+        // Set Chrome options for headless mode
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless"); // Uncomment if you want to run in headless mode
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--window-size=1920,1080");
-
+        //options.addArguments("--headless"); // Add headless argument
         driver = new ChromeDriver(options);
-    }
-
-    @Test
-    public void runTest() {
-        driver.get("http://52.91.30.29:8085");
-        testFormSubmission();
+        
+        driver.get("http://52.91.30.29:8085/");
     }
 
     public void testFormSubmission() {
@@ -142,7 +132,6 @@ public class App {
         return !message.trim().isEmpty();
     }
 
-    @AfterClass
     public void tearDown() {
         if (driver != null) {
             driver.quit();
@@ -152,7 +141,7 @@ public class App {
     public static void main(String[] args) {
         App app = new App();
         app.setUp();
-        app.runTest();
+        app.testFormSubmission();
         app.tearDown();
     }
 }
