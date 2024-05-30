@@ -2,7 +2,6 @@ package com.mentorbabaa.selenium.medicure_application;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriver.Timeouts;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -14,18 +13,17 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class App 
-{
-	private WebDriver driver;
+public class App {
+    private WebDriver driver;
 
-    public void setup() {
+    @BeforeClass
+    public void setUp() {
         System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-        
+
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless"); // Uncomment if you want to run in headless mode
         options.addArguments("--no-sandbox");
@@ -38,7 +36,7 @@ public class App
     @Test
     public void runTest() {
         driver.get("http://52.91.30.29:8085");
-        
+        testFormSubmission();
     }
 
     public void testFormSubmission() {
@@ -144,6 +142,7 @@ public class App
         return !message.trim().isEmpty();
     }
 
+    @AfterClass
     public void tearDown() {
         if (driver != null) {
             driver.quit();
@@ -153,7 +152,7 @@ public class App
     public static void main(String[] args) {
         App app = new App();
         app.setUp();
-        app.testFormSubmission();
+        app.runTest();
         app.tearDown();
     }
 }
